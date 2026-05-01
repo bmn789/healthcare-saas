@@ -2,7 +2,7 @@ import { Button, Puck, useGetPuck } from '@puckeditor/core'
 import type { Data } from '@puckeditor/core'
 import type { ReactNode } from 'react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { buildDashboardPuckDataFromState } from '../../lib/dashboardOverviewStorage'
+import { buildDashboardPuckDataFromState, DASHBOARD_PUCK_DRAFT_LS_KEY } from '../../lib/dashboardOverviewStorage'
 import { useDashboardOverviewStore } from '../../store/dashboardOverviewStore'
 import { dashboardPuckConfig } from './dashboardPuckConfig'
 
@@ -41,7 +41,7 @@ export type DashboardCustomizePuckEditorProps = {
 export function DashboardCustomizePuckEditor({ onApplied, onCancel }: DashboardCustomizePuckEditorProps) {
   const [puckDraft, setPuckDraft] = useState<Data>(() => {
     try {
-      const raw = localStorage.getItem('dashboard-puck-data')
+      const raw = localStorage.getItem(DASHBOARD_PUCK_DRAFT_LS_KEY)
       if (raw?.trim()) {
         const parsed = JSON.parse(raw) as Partial<Data>
         if (Array.isArray(parsed.content) && parsed.content.length > 0) {
@@ -71,7 +71,7 @@ export function DashboardCustomizePuckEditor({ onApplied, onCancel }: DashboardC
   const handleApplyFromData = useCallback(
     (data: Data) => {
       try {
-        localStorage.setItem('dashboard-puck-data', JSON.stringify(data))
+        localStorage.setItem(DASHBOARD_PUCK_DRAFT_LS_KEY, JSON.stringify(data))
       } catch {
         /* ignore */
       }

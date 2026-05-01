@@ -1,0 +1,273 @@
+{
+    "root": {
+        "props": {}
+    },
+    "content": [
+        {
+            "type": "DashboardActionStrip",
+            "props": {
+                "eyebrow": "Operational pulse",
+                "title": "Care team shortcuts",
+                "patientsLabel": "Active patients",
+                "patientsHint": "Live census from roster",
+                "starredLabel": "Starred patients",
+                "starredHint": "Pinned profiles for rounds",
+                "notificationsLabel": "Active notifications",
+                "notificationsHint": "Unread inbox items",
+                "id": "DashboardActionStrip-78a27893-c274-4cdf-a7d7-c44635fcd1e6"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "size": "md",
+                "id": "PuckSpace-5c9d77ef-87d1-4cb5-a61a-9d50e7634fd6"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardOverviewActivePatients",
+                        "props": {
+                            "id": "DashboardOverviewActivePatients-be24e847-9f04-410c-8057-05299519de4e",
+                            "label": "Total Patients",
+                            "value": "138"
+                        }
+                    },
+                    {
+                        "type": "DashboardOverviewDoctorsOnShift",
+                        "props": {
+                            "id": "DashboardOverviewDoctorsOnShift:doctorsOnShift",
+                            "label": "Doctors On Shift",
+                            "value": "42"
+                        }
+                    },
+                    {
+                        "type": "DashboardOverviewCriticalAlerts",
+                        "props": {
+                            "id": "DashboardOverviewCriticalAlerts:criticalAlerts",
+                            "label": "Critical Alerts",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "type": "DashboardOverviewAvgWaitTime",
+                        "props": {
+                            "id": "DashboardOverviewAvgWaitTime:avgWaitTime",
+                            "label": "Avg. Wait Time",
+                            "value": "12 min"
+                        }
+                    }
+                ],
+                "id": "layout-kpi-strip",
+                "variant": "grid-4",
+                "gap": "md"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "id": "space-after-kpis",
+                "size": "md"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardCardTaggedMetric",
+                        "props": {
+                            "label": "Bed utilization",
+                            "value": "84%",
+                            "hint": "+2 pts vs rolling 7-day average.",
+                            "tags": "Capacity · KPI",
+                            "id": "DashboardCardTaggedMetric-c733932b-26cb-4d7d-a190-69b0aae44b3a"
+                        }
+                    },
+                    {
+                        "type": "DashboardCardHighlight",
+                        "props": {
+                            "eyebrow": "Quality spotlight",
+                            "title": "HCAHPS responsiveness",
+                            "value": "Top quartile",
+                            "ribbonBody": "Use this ribbon for marquee wins — quick rounds, standout units, or quality milestones.",
+                            "tags": "HCAHPS · Quality · Nursing",
+                            "id": "DashboardCardHighlight-91e98495-91ea-4532-9df8-063d1a406bbc"
+                        }
+                    }
+                ],
+                "id": "layout-alerts-ribbon",
+                "variant": "grid-2",
+                "gap": "md"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "id": "space-before-charts",
+                "size": "md"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardAnalyticsWeeklyThroughput",
+                        "props": {
+                            "id": "chart-weekly-throughput"
+                        }
+                    },
+                    {
+                        "type": "DashboardAnalyticsDepartmentVolume",
+                        "props": {
+                            "id": "chart-department-volume"
+                        }
+                    }
+                ],
+                "id": "layout-charts-1",
+                "variant": "grid-2",
+                "gap": "md"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "id": "space-charts-1",
+                "size": "sm"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardAnalyticsDemographics",
+                        "props": {
+                            "id": "chart-demographics"
+                        }
+                    },
+                    {
+                        "type": "DashboardAnalyticsWaitTime",
+                        "props": {
+                            "id": "chart-wait-time"
+                        }
+                    }
+                ],
+                "id": "layout-charts-2",
+                "variant": "ratio-2-3",
+                "gap": "md"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "id": "space-charts-2",
+                "size": "sm"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardAnalyticsRevenue",
+                        "props": {
+                            "id": "chart-revenue"
+                        }
+                    },
+                    {
+                        "type": "DashboardAnalyticsWard",
+                        "props": {
+                            "id": "chart-ward"
+                        }
+                    }
+                ],
+                "id": "layout-charts-3",
+                "variant": "ratio-2-1",
+                "gap": "md",
+                "layoutReverse": "no"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "id": "space-charts-3",
+                "size": "sm"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardAnalyticsAppointments",
+                        "props": {
+                            "id": "chart-appointments"
+                        }
+                    },
+                    {
+                        "type": "DashboardAnalyticsQuality",
+                        "props": {
+                            "id": "chart-quality"
+                        }
+                    }
+                ],
+                "id": "layout-charts-4",
+                "variant": "grid-2",
+                "gap": "md"
+            }
+        },
+        {
+            "type": "PuckSpace",
+            "props": {
+                "id": "space-before-cards",
+                "size": "lg"
+            }
+        },
+        {
+            "type": "PuckLayoutRow",
+            "props": {
+                "items": [
+                    {
+                        "type": "DashboardCardFeatured",
+                        "props": {
+                            "id": "card-featured-clinical",
+                            "title": "Clinical favorites",
+                            "subtitle": "Starred profiles and wards you revisit most — pin key charts for faster rounds.",
+                            "tags": "Highlights · Team",
+                            "accent": "violet",
+                            "showStarredProfiles": "yes"
+                        }
+                    },
+                    {
+                        "type": "DashboardCardTaggedMetric",
+                        "props": {
+                            "id": "card-tagged-bed",
+                            "label": "Bed utilization",
+                            "value": "84%",
+                            "hint": "+2 pts vs rolling 7-day average.",
+                            "tags": "Capacity · KPI"
+                        }
+                    },
+                    {
+                        "type": "DashboardCardInsight",
+                        "props": {
+                            "id": "card-insight-throughput",
+                            "title": "Throughput holding steady",
+                            "body": "Discharge completions are tracking above target for midday blocks. Radiology queue is the main bottleneck for afternoon admits.",
+                            "tags": "Ops · Radiology · Trend"
+                        }
+                    }
+                ],
+                "id": "layout-cards-narrative",
+                "variant": "grid-3",
+                "gap": "md"
+            }
+        }
+    ],
+    "zones": {}
+}

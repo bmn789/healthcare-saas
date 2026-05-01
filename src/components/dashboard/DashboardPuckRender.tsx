@@ -4,13 +4,14 @@ import { useMemo } from 'react'
 import { dashboardPuckConfig } from '../puck-editor/dashboardPuckConfig'
 import {
   buildDashboardPuckDataFromState,
+  DASHBOARD_PUCK_DRAFT_LS_KEY,
   hydrateDashboardPuckMetrics,
   type DashboardOverviewStatePayload,
 } from '../../lib/dashboardOverviewStorage'
 
 function normalizedPuckLocal(): Data | null {
   try {
-    const raw = localStorage.getItem('dashboard-puck-data')
+    const raw = localStorage.getItem(DASHBOARD_PUCK_DRAFT_LS_KEY)
     if (!raw?.trim()) return null
     const parsed = JSON.parse(raw) as Partial<Data>
     if (!Array.isArray(parsed.content) || parsed.content.length === 0) return null

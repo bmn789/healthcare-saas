@@ -1,8 +1,27 @@
 import type { ComponentData, Data } from '@puckeditor/core'
 import dashboardFixture from '../data/dashboard.json'
+import dashboardPuckDefaultFixture from '../components/puck-editor/dash_default.json'
 import { parseStoredPuckContent, shallowClonePuckContent, walkPuckContentPreorder } from './puckNestedContent'
 
 const STORAGE_KEY = 'healthcare-saas:dashboard-overview-v1'
+
+/** `localStorage` draft from the visual Puck customize flow; overlays overview storage until cleared. */
+export const DASHBOARD_PUCK_DRAFT_LS_KEY = 'dashboard-puck-data'
+
+function assertBundledPuckFixture(): ComponentData[] {
+  const parsed = parseStoredPuckContent(dashboardPuckDefaultFixture.content as unknown)
+  if (!parsed?.length) {
+    throw new Error('dashboard puck default fixture: invalid or empty content (dash_default.json)')
+  }
+  return parsed
+}
+
+/** Validated once at startup from `dash_default.json`. */
+const BUNDLED_DASHBOARD_PUCK_CONTENT = assertBundledPuckFixture()
+
+export function cloneBundledDefaultPuckContent(): ComponentData[] {
+  return shallowClonePuckContent(BUNDLED_DASHBOARD_PUCK_CONTENT)
+}
 
 export const DASHBOARD_METRIC_IDS = ['activePatients', 'doctorsOnShift', 'criticalAlerts', 'avgWaitTime'] as const
 
@@ -161,6 +180,28 @@ export function clearDashboardOverviewStorage(): void {
   }
 }
 
+/** Removes persisted overview + Puck customize draft keys, then callers typically `location.reload()`. */
+export function clearAllDashboardCustomizationLocalStorage(): void {
+  clearDashboardOverviewStorage()
+  try {
+    localStorage.removeItem(DASHBOARD_PUCK_DRAFT_LS_KEY)
+  } catch {
+    /* ignore */
+  }
+}
+
+/** True when the Puck customize flow left a non-empty draft (same shape check as `DashboardCustomizePuckEditor`). */
+export function hasDashboardPuckDraftInLocalStorage(): boolean {
+  try {
+    const raw = localStorage.getItem(DASHBOARD_PUCK_DRAFT_LS_KEY)
+    if (!raw?.trim()) return false
+    const parsed = JSON.parse(raw) as { content?: unknown }
+    return Array.isArray(parsed.content) && parsed.content.length > 0
+  } catch {
+    return false
+  }
+}
+
 export function persistDashboardOverviewState(payload: DashboardOverviewStatePayload): void {
   try {
     const stored = { v: 1 as const, ...payload }
@@ -232,23 +273,12 @@ export function loadDashboardOverviewFromStorage(): LoadDashboardOverviewResult 
 }
 
 export function buildDashboardPuckDataFromState(state: DashboardOverviewStatePayload): Data {
-  if (state.puckContent?.length) {
-    const hydrated = hydrateDashboardPuckMetrics(state.puckContent, state.metrics)
-    return { content: hydrated, root: { props: {} }, zones: {} }
-  }
-  const order = state.layoutOrder.length > 0 ? state.layoutOrder : [...DEFAULT_DASHBOARD_LAYOUT_ORDER]
-  const content = order.map((id) => {
-    const row = state.metrics[id]
-    return {
-      type: PUCK_TYPE_BY_METRIC_ID[id],
-      props: {
-        id: `${PUCK_TYPE_BY_METRIC_ID[id]}:${id}`,
-        label: row.label,
-        value: row.value,
-      },
-    }
-  })
-  return { content, root: { props: {} }, zones: {} }
+  const rawTree =
+    state.puckContent && state.puckContent.length > 0
+      ? shallowClonePuckContent(state.puckContent)
+      : cloneBundledDefaultPuckContent()
+  const hydrated = hydrateDashboardPuckMetrics(rawTree, state.metrics)
+  return { content: hydrated, root: { props: {} }, zones: {} }
 }
 
 function walkPuckDataTrees(data: Data, visitor: (row: ComponentData) => void) {

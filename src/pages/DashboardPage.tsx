@@ -1,5 +1,5 @@
 import { DashboardPuckRender } from '../components/dashboard/DashboardPuckRender'
-import { DashboardCustomizeViewButton } from '../components/dashboard/customize/DashboardCustomizeViewButton'
+import { DashboardCustomizeViewActions } from '../components/dashboard/customize/DashboardCustomizeViewButton'
 import { useDashboardOverviewStore } from '../store/dashboardOverviewStore'
 
 export const DashboardPage = () => {
@@ -35,7 +35,7 @@ export const DashboardPage = () => {
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold text-slate-900 dark:text-violet-100">Home Dashboard</h1>
         </div>
-        <DashboardCustomizeViewButton />
+        <DashboardCustomizeViewActions />
       </div>
 
       <DashboardPuckRender metrics={metrics} layoutOrder={layoutOrder} puckContent={puckContent} />
