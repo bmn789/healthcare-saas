@@ -1,0 +1,6 @@
+[
+  { "quarter": "Q1", "readmissionPct": 8.4, "hacRate": 0.42 },
+  { "quarter": "Q2", "readmissionPct": 7.9, "hacRate": 0.38 },
+  { "quarter": "Q3", "readmissionPct": 7.6, "hacRate": 0.35 },
+  { "quarter": "Q4", "readmissionPct": 7.2, "hacRate": 0.33 }
+]

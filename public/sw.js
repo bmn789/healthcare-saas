@@ -1,19 +1,22 @@
-self.addEventListener('install', (event) => {
-  event.waitUntil(self.skipWaiting())
+self.addEventListener('install', e => {
+  self.skipWaiting()
 })
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim())
+self.addEventListener('activate', e => {
+  self.clients.claim()
 })
 
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', event => {
   event.notification.close()
+
   event.waitUntil(
-    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
-      if (clients.length > 0) {
-        return clients[0].focus()
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientsArr => {
+      for (const client of clientsArr) {
+        if (client.url === 'http://localhost:3000/' && 'focus' in client) {
+          return client.focus()
+        }
       }
-      return self.clients.openWindow('/dashboard')
-    }),
+      return clients.openWindow('/')
+    })
   )
 })

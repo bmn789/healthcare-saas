@@ -1,0 +1,9 @@
+[
+  { "day": "Mon", "completed": 142, "rescheduled": 18, "noShow": 9 },
+  { "day": "Tue", "completed": 156, "rescheduled": 14, "noShow": 7 },
+  { "day": "Wed", "completed": 148, "rescheduled": 21, "noShow": 11 },
+  { "day": "Thu", "completed": 163, "rescheduled": 16, "noShow": 8 },
+  { "day": "Fri", "completed": 151, "rescheduled": 23, "noShow": 12 },
+  { "day": "Sat", "completed": 98, "rescheduled": 12, "noShow": 14 },
+  { "day": "Sun", "completed": 72, "rescheduled": 9, "noShow": 6 }
+]

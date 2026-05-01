@@ -1,0 +1,7 @@
+[
+  { "ward": "ICU", "occupancy": 92, "throughput": 78, "satisfaction": 86 },
+  { "ward": "Med-Surg", "occupancy": 84, "throughput": 88, "satisfaction": 81 },
+  { "ward": "Maternity", "occupancy": 71, "throughput": 82, "satisfaction": 94 },
+  { "ward": "Pediatric", "occupancy": 76, "throughput": 85, "satisfaction": 89 },
+  { "ward": "Behavioral", "occupancy": 68, "throughput": 72, "satisfaction": 77 }
+]

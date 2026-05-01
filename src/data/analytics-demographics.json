@@ -1,0 +1,6 @@
+[
+  { "segment": "0–17", "patients": 420 },
+  { "segment": "18–39", "patients": 1180 },
+  { "segment": "40–64", "patients": 1640 },
+  { "segment": "65+", "patients": 890 }
+]

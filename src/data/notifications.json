@@ -1,0 +1,272 @@
+[
+  {
+    "id": "NTF-1001",
+    "title": "ICU bed capacity warning",
+    "message": "MICU is at 92% occupancy. Consider surge staffing for the next shift.",
+    "severity": "warning",
+    "category": "Operations",
+    "source": "Capacity Engine",
+    "createdAt": "2026-05-01T07:12:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1002",
+    "title": "Medication interaction alert",
+    "message": "New order for PT-4412 may interact with current anticoagulant. Review required.",
+    "severity": "critical",
+    "category": "Clinical",
+    "source": "Pharmacy Safety",
+    "createdAt": "2026-05-01T06:55:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1003",
+    "title": "Lab result available",
+    "message": "CMP and CBC results posted for admit in ED Bay 4.",
+    "severity": "info",
+    "category": "Lab",
+    "source": "LIS",
+    "createdAt": "2026-05-01T06:40:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1004",
+    "title": "OR schedule change",
+    "message": "Case OR-3 moved to 14:30 due to instrument sterilization delay.",
+    "severity": "info",
+    "category": "Operations",
+    "source": "Surgery Scheduler",
+    "createdAt": "2026-05-01T06:22:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1005",
+    "title": "Vitals threshold exceeded",
+    "message": "Telemetry rule fired: sustained HR > 120 on unit 5W—nurse notified.",
+    "severity": "critical",
+    "category": "Clinical",
+    "source": "Monitoring",
+    "createdAt": "2026-05-01T06:10:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1006",
+    "title": "Inventory low: saline 0.9%",
+    "message": "Central store below par level. Replenishment ETA 09:00.",
+    "severity": "warning",
+    "category": "Pharmacy",
+    "source": "Inventory",
+    "createdAt": "2026-05-01T05:58:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1007",
+    "title": "HIPAA training due",
+    "message": "Annual compliance module due in 7 days for 12 users on your team.",
+    "severity": "info",
+    "category": "IT",
+    "source": "Compliance",
+    "createdAt": "2026-05-01T05:30:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1008",
+    "title": "Discharge planning task",
+    "message": "Patient in 7E-12 needs home oxygen order before discharge.",
+    "severity": "warning",
+    "category": "Clinical",
+    "source": "Care Coordination",
+    "createdAt": "2026-05-01T05:12:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1009",
+    "title": "PACS sync completed",
+    "message": "Night batch imaging sync finished with 0 errors.",
+    "severity": "info",
+    "category": "IT",
+    "source": "PACS",
+    "createdAt": "2026-05-01T04:45:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1010",
+    "title": "Blood bank urgent",
+    "message": "Type and screen required for OR-1 case—specimen not received.",
+    "severity": "critical",
+    "category": "Lab",
+    "source": "Blood Bank",
+    "createdAt": "2026-05-01T04:30:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1011",
+    "title": "Visitor policy update",
+    "message": "Holiday hours published for main entrance and ED waiting areas.",
+    "severity": "info",
+    "category": "Operations",
+    "source": "Administration",
+    "createdAt": "2026-04-30T21:00:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1012",
+    "title": "Device battery low",
+    "message": "Portable monitor PM-88 reported low battery on cart 12.",
+    "severity": "warning",
+    "category": "Clinical",
+    "source": "Equipment",
+    "createdAt": "2026-04-30T19:15:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1013",
+    "title": "Prior auth approved",
+    "message": "MRI lumbar spine prior authorization approved for outpatient clinic.",
+    "severity": "info",
+    "category": "Operations",
+    "source": "Revenue Cycle",
+    "createdAt": "2026-04-30T17:40:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1014",
+    "title": "Sepsis bundle timer",
+    "message": "Bundle elements due in 35 minutes for ED patient in Bay 2.",
+    "severity": "critical",
+    "category": "Clinical",
+    "source": "ED Flow",
+    "createdAt": "2026-04-30T16:22:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1015",
+    "title": "Backup job success",
+    "message": "Incremental backup of EHR reporting DB completed ahead of SLA.",
+    "severity": "info",
+    "category": "IT",
+    "source": "Infrastructure",
+    "createdAt": "2026-04-30T15:05:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1016",
+    "title": "Isolation precautions",
+    "message": "Airborne isolation sign-out required for room 6N-08.",
+    "severity": "warning",
+    "category": "Clinical",
+    "source": "Infection Control",
+    "createdAt": "2026-04-30T14:30:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1017",
+    "title": "Formulary substitution",
+    "message": "Preferred generic now active for high-volume statin across campuses.",
+    "severity": "info",
+    "category": "Pharmacy",
+    "source": "Pharmacy Ops",
+    "createdAt": "2026-04-30T13:10:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1018",
+    "title": "Courier delay",
+    "message": "Specimen route B delayed 25 minutes due to traffic—lab SLAs adjusted.",
+    "severity": "warning",
+    "category": "Lab",
+    "source": "Logistics",
+    "createdAt": "2026-04-30T12:05:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1019",
+    "title": "SSO certificate expiring",
+    "message": "IdP signing cert expires in 14 days—renewal ticket auto-created.",
+    "severity": "warning",
+    "category": "IT",
+    "source": "Security",
+    "createdAt": "2026-04-30T11:00:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1020",
+    "title": "Hand hygiene audit",
+    "message": "Random audit on 3W met target compliance for the week.",
+    "severity": "info",
+    "category": "Clinical",
+    "source": "Quality",
+    "createdAt": "2026-04-30T09:45:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1021",
+    "title": "Refrigerator temp excursion",
+    "message": "Vaccine fridge VF-11 briefly out of range—log review required.",
+    "severity": "critical",
+    "category": "Pharmacy",
+    "source": "Environmental",
+    "createdAt": "2026-04-30T08:20:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1022",
+    "title": "New policy acknowledgment",
+    "message": "Controlled substance handling update—acknowledge by Friday.",
+    "severity": "info",
+    "category": "Operations",
+    "source": "HR",
+    "createdAt": "2026-04-29T16:00:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1023",
+    "title": "EHR maintenance window",
+    "message": "Planned downtime Sunday 01:00–03:00 local for database patching.",
+    "severity": "warning",
+    "category": "IT",
+    "source": "EHR Ops",
+    "createdAt": "2026-04-29T14:00:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1024",
+    "title": "Radiology overread queue",
+    "message": "Four studies pending overread—priority list updated.",
+    "severity": "warning",
+    "category": "Clinical",
+    "source": "Radiology",
+    "createdAt": "2026-04-29T12:30:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1025",
+    "title": "Help desk ticket resolved",
+    "message": "VPN profile issue for kiosk K-14 closed as fixed.",
+    "severity": "info",
+    "category": "IT",
+    "source": "Service Desk",
+    "createdAt": "2026-04-29T10:05:00",
+    "read": true
+  },
+  {
+    "id": "NTF-1026",
+    "title": "Stem cell processing",
+    "message": "Inbound product requires chain-of-custody signature before storage.",
+    "severity": "critical",
+    "category": "Lab",
+    "source": "Transplant",
+    "createdAt": "2026-04-29T07:50:00",
+    "read": false
+  },
+  {
+    "id": "NTF-1027",
+    "title": "Parking structure access",
+    "message": "Badge reader 2 offline—use alternate lane during peak hours.",
+    "severity": "info",
+    "category": "Operations",
+    "source": "Facilities",
+    "createdAt": "2026-04-28T22:10:00",
+    "read": true
+  }
+]

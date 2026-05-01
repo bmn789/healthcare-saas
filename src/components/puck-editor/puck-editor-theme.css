@@ -1,0 +1,109 @@
+/*
+ * @puckeditor/core uses :root tokens tuned for light chrome. Remap them under a
+ * scoped wrapper when the app is in dark mode so sidebar, fields, and preview
+ * (iframe disabled — see Dashboard Customize) stay readable.
+ */
+
+/* Drag-and-drop reorder: keep gap marker full-width of the drop zone. */
+body [data-dnd-placeholder] {
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100%;
+  margin-inline: 0 !important;
+}
+
+/*
+ * Puck wraps blocks in draggable roots that default to intrinsic width inside CSS grid cells.
+ * Stretch them so dashboard overview tiles span the full column (customize modal + iframe preview).
+ */
+ body [data-puck-component][data-puck-dnd] {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+html.dark {
+  color-scheme: dark;
+
+  --puck-color-black: #f0f3ff;
+  --puck-color-white: #141824;
+
+  --puck-color-grey-01: #0d0f16;
+  --puck-color-grey-02: #141722;
+  --puck-color-grey-03: #9aa3b8;
+  --puck-color-grey-04: #c8cfdf;
+  --puck-color-grey-05: #959eb5;
+  --puck-color-grey-06: #70788f;
+  --puck-color-grey-07: #5c6378;
+  --puck-color-grey-08: #aeb6ca;
+  --puck-color-grey-09: #33394c;
+  --puck-color-grey-10: #252a3a;
+  --puck-color-grey-11: #1a1f2e;
+  --puck-color-grey-12: #10141f;
+
+  --puck-color-azure-01: #c9d8ff;
+  --puck-color-azure-02: #b0c8ff;
+  --puck-color-azure-03: #94b4f5;
+  --puck-color-azure-04: #7aa3ec;
+  --puck-color-azure-05: #5d8ad8;
+  --puck-color-azure-06: #4a78c4;
+  --puck-color-azure-07: #3d649f;
+  --puck-color-azure-08: #2f4d78;
+  --puck-color-azure-09: #253a5c;
+  --puck-color-azure-10: #1c2d47;
+  --puck-color-azure-11: #17253a;
+  --puck-color-azure-12: #121c2e;
+
+  --puck-color-rose-01: #ffd6e8;
+  --puck-color-rose-02: #ffb8da;
+  --puck-color-rose-03: #ff9ccc;
+  --puck-color-rose-04: #f67eb3;
+  --puck-color-rose-05: #e070a0;
+  --puck-color-rose-06: #c86692;
+  --puck-color-rose-07: #b35d86;
+  --puck-color-rose-08: #8f4d6c;
+  --puck-color-rose-09: #5c3145;
+  --puck-color-rose-10: #3d222f;
+  --puck-color-rose-11: #2a1821;
+  --puck-color-rose-12: #1c1016;
+
+  --puck-color-green-01: #b8f0c4;
+  --puck-color-green-02: #7fdf95;
+  --puck-color-green-03: #4ecf72;
+  --puck-color-green-04: #2fb855;
+  --puck-color-green-05: #28994a;
+  --puck-color-green-06: #217a3d;
+  --puck-color-green-07: #1b6233;
+  --puck-color-green-08: #164d29;
+  --puck-color-green-09: #123821;
+  --puck-color-green-10: #0e2a19;
+  --puck-color-green-11: #0c2214;
+  --puck-color-green-12: #091a10;
+
+  --puck-color-yellow-01: #fff2c2;
+  --puck-color-yellow-02: #ffe49a;
+  --puck-color-yellow-03: #ffd370;
+  --puck-color-yellow-04: #e8b848;
+  --puck-color-yellow-05: #c49a38;
+  --puck-color-yellow-06: #9e7f2f;
+  --puck-color-yellow-07: #7f6628;
+  --puck-color-yellow-08: #624f21;
+  --puck-color-yellow-09: #4a3c1b;
+  --puck-color-yellow-10: #362d16;
+  --puck-color-yellow-11: #2b2413;
+  --puck-color-yellow-12: #1f1a10;
+
+  --puck-color-red-01: #ffc9cb;
+  --puck-color-red-02: #ff9ca0;
+  --puck-color-red-03: #f5757b;
+  --puck-color-red-04: #d8575f;
+  --puck-color-red-05: #b84950;
+  --puck-color-red-06: #953c42;
+  --puck-color-red-07: #7a3237;
+  --puck-color-red-08: #5f282c;
+  --puck-color-red-09: #451e21;
+  --puck-color-red-10: #331518;
+  --puck-color-red-11: #291114;
+  --puck-color-red-12: #1c0c0e;
+}

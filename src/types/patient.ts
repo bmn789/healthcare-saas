@@ -1,6 +1,9 @@
 export type Patient = {
   id: string
   name: string
+  photoUrl: string
+  email: string
+  mobile: string
   age: number
   gender: 'Male' | 'Female' | 'Other'
   condition: string

@@ -1,0 +1,8 @@
+[
+  { "department": "Emergency", "cases": 1842 },
+  { "department": "Cardiology", "cases": 926 },
+  { "department": "Orthopedics", "cases": 701 },
+  { "department": "Oncology", "cases": 588 },
+  { "department": "Pediatrics", "cases": 512 },
+  { "department": "Neurology", "cases": 403 }
+]

@@ -1,0 +1,9 @@
+[
+  { "name": "Mon", "admissions": 22, "discharges": 13 },
+  { "name": "Tue", "admissions": 18, "discharges": 10 },
+  { "name": "Wed", "admissions": 27, "discharges": 14 },
+  { "name": "Thu", "admissions": 24, "discharges": 16 },
+  { "name": "Fri", "admissions": 31, "discharges": 20 },
+  { "name": "Sat", "admissions": 16, "discharges": 11 },
+  { "name": "Sun", "admissions": 12, "discharges": 9 }
+]

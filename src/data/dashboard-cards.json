@@ -1,0 +1,43 @@
+{
+  "featured": {
+    "title": "Clinical favorites",
+    "subtitle": "Starred profiles and wards you revisit most — pin key charts for faster rounds.",
+    "tags": "Highlights · Team",
+    "accent": "violet",
+    "showStarredProfiles": true
+  },
+  "taggedMetric": {
+    "label": "Bed utilization",
+    "value": "84%",
+    "hint": "+2 pts vs rolling 7-day average.",
+    "tags": "Capacity · KPI"
+  },
+  "insight": {
+    "title": "Throughput holding steady",
+    "body": "Discharge completions are tracking above target for midday blocks. Radiology queue is the main bottleneck for afternoon admits.",
+    "tags": "Ops · Radiology · Trend"
+  },
+  "highlight": {
+    "eyebrow": "Quality spotlight",
+    "title": "HCAHPS responsiveness",
+    "value": "Top quartile",
+    "ribbonBody": "Use this ribbon for marquee wins — quick rounds, standout units, or quality milestones.",
+    "tags": "Nursing · Quality"
+  },
+  "actionStrip": {
+    "eyebrow": "Operational pulse",
+    "title": "Care team shortcuts",
+    "patientsLabel": "Active patients",
+    "patientsHint": "Live census from roster",
+    "starredLabel": "Starred patients",
+    "starredHint": "Pinned profiles for rounds",
+    "notificationsLabel": "Active notifications",
+    "notificationsHint": "Unread inbox items"
+  },
+  "alert": {
+    "severity": "warn",
+    "title": "ICU capacity warning",
+    "detail": "Ward B nearing 92% staffed beds — escalate per surge playbook.",
+    "tags": "Ward · Staffing"
+  }
+}

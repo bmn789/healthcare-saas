@@ -1,0 +1,28 @@
+{
+  "overviewMetrics": [
+    { "id": "activePatients", "label": "Total Patients", "value": "138" },
+    { "id": "doctorsOnShift", "label": "Doctors On Shift", "value": "42" },
+    { "id": "criticalAlerts", "label": "Critical Alerts", "value": "7" },
+    { "id": "avgWaitTime", "label": "Avg. Wait Time", "value": "12 min" }
+  ],
+  "kpis": [
+    { "label": "Bed utilization", "value": "84%" },
+    { "label": "Readmission (30d)", "value": "3.2%" },
+    { "label": "OR turnover", "value": "28 min" },
+    { "label": "Lab TAT", "value": "42 min" }
+  ],
+  "alerts": [
+    {
+      "title": "ICU capacity warning",
+      "detail": "Ward B approaching 95% occupancy within 4 hours."
+    },
+    {
+      "title": "Equipment maintenance",
+      "detail": "MRI-2 scheduled downtime begins at 22:00."
+    },
+    {
+      "title": "Staffing gap",
+      "detail": "Night shift short 2 RNs in emergency — coverage plan needed."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  { "week": "W1", "er": 48, "clinic": 22, "imaging": 35 },
+  { "week": "W2", "er": 44, "clinic": 24, "imaging": 31 },
+  { "week": "W3", "er": 52, "clinic": 21, "imaging": 38 },
+  { "week": "W4", "er": 41, "clinic": 19, "imaging": 29 },
+  { "week": "W5", "er": 46, "clinic": 23, "imaging": 33 },
+  { "week": "W6", "er": 39, "clinic": 18, "imaging": 27 },
+  { "week": "W7", "er": 43, "clinic": 20, "imaging": 30 },
+  { "week": "W8", "er": 45, "clinic": 25, "imaging": 32 }
+]

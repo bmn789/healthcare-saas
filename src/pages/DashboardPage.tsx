@@ -1,84 +1,44 @@
-const metrics = [
-  { label: 'Active Patients', value: '138' },
-  { label: 'Doctors On Shift', value: '42' },
-  { label: 'Critical Alerts', value: '7' },
-  { label: 'Avg. Wait Time', value: '12 min' },
-]
+import { DashboardPuckRender } from '../components/dashboard/DashboardPuckRender'
+import { DashboardCustomizeViewButton } from '../components/dashboard/customize/DashboardCustomizeViewButton'
+import { useDashboardOverviewStore } from '../store/dashboardOverviewStore'
 
-const triggerLocalNotification = async () => {
-  if (!('Notification' in window)) {
-    alert('Notifications are not supported in this browser.')
-    return
-  }
+export const DashboardPage = () => {
+  const hadStorageCorruption = useDashboardOverviewStore((s) => s.hadStorageCorruption)
+  const dismissCorruptionBanner = useDashboardOverviewStore((s) => s.dismissCorruptionBanner)
+  const layoutOrder = useDashboardOverviewStore((s) => s.layoutOrder)
+  const metrics = useDashboardOverviewStore((s) => s.metrics)
+  const puckContent = useDashboardOverviewStore((s) => s.puckContent)
 
-  try {
-    const permission =
-      Notification.permission === 'granted'
-        ? 'granted'
-        : await Notification.requestPermission()
+  return (
+    <section className="space-y-6">
+      {hadStorageCorruption ? (
+        <div
+          className="flex flex-col gap-2 rounded-xl border border-amber-200/90 bg-amber-50 px-4 py-3 text-sm text-amber-950 shadow-sm dark:border-amber-500/35 dark:bg-amber-950/45 dark:text-amber-50 sm:flex-row sm:items-center sm:justify-between"
+          role="alert"
+        >
+          <p className="min-w-0">
+            Saved Home dashboard customization could not be read and was cleared. Showing default tiles from bundled
+            fixtures. Customize view uses a JSON editor until you apply valid data; the visual editor returns after
+            that.
+          </p>
+          <button
+            type="button"
+            onClick={() => dismissCorruptionBanner()}
+            className="shrink-0 rounded-lg border border-amber-300/90 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900 hover:bg-amber-100 dark:border-amber-500/40 dark:bg-amber-900/80 dark:text-amber-100 dark:hover:bg-amber-800/70"
+          >
+            Dismiss
+          </button>
+        </div>
+      ) : null}
 
-    if (permission !== 'granted') {
-      alert('Notification permission is required to trigger alerts.')
-      return
-    }
-
-    let registration: ServiceWorkerRegistration | undefined
-    if ('serviceWorker' in navigator) {
-      const existing = await navigator.serviceWorker.getRegistration()
-      if (!existing) {
-        await navigator.serviceWorker.register('/sw.js')
-      }
-      registration = await navigator.serviceWorker.ready
-    }
-
-    const payload = {
-      body: 'Room ICU-12 requires nurse follow-up in the next 10 minutes.',
-      icon: '/favicon.svg',
-      tag: 'critical-patient-reminder',
-    }
-
-    if (registration?.active) {
-      await registration.showNotification('Critical Patient Reminder', payload)
-      return
-    }
-
-    new Notification('Critical Patient Reminder', payload)
-  } catch (error) {
-    console.error('Unable to trigger notification:', error)
-    alert('Unable to trigger notification. Please try again.')
-  }
-}
-
-export const DashboardPage = () => (
-  <section className="space-y-6">
-    <div className="flex flex-wrap items-center justify-between gap-3">
-      <div>
-        <h1 className="text-2xl font-semibold text-slate-900">Home Dashboard</h1>
-        <p className="text-sm text-slate-500">
-          Snapshot of real-time hospital operations
-        </p>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="space-y-2">
+          <h1 className="text-2xl font-semibold text-slate-900 dark:text-violet-100">Home Dashboard</h1>
+        </div>
+        <DashboardCustomizeViewButton />
       </div>
-      <button
-        type="button"
-        onClick={() => void triggerLocalNotification()}
-        className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"
-      >
-        Trigger Notification
-      </button>
-    </div>
 
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-      {metrics.map((metric) => (
-        <article key={metric.label} className="rounded-lg border border-slate-200 p-4">
-          <p className="text-sm text-slate-500">{metric.label}</p>
-          <p className="mt-2 text-2xl font-semibold text-slate-900">{metric.value}</p>
-        </article>
-      ))}
-    </div>
-
-    <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm text-blue-800">
-      Notification use case: click <strong>Trigger Notification</strong> to send a
-      local alert for a critical patient follow-up reminder using service workers.
-    </div>
-  </section>
-)
+      <DashboardPuckRender metrics={metrics} layoutOrder={layoutOrder} puckContent={puckContent} />
+    </section>
+  )
+}
